@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>天天生鲜</title>
+    <script type="text/javascript" src="../../material/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="../../material/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../material/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<!-- navbar 声明导航条 -->
+<!-- navbar-inverse 声明反白的导航条样式-->
+<!-- navbar-static-top 去掉导航条的圆角-->
+<div class="navbar navbar-inverse  navbar-static-top">
+    <!-- container bootstrap容器 宽度默认是1170,左右15px的padding值 -->
+    <div class="container">
+        <!--navbar-header 申明logo的容器-->
+        <div class="navbar-header">
+            <!-- 可伸缩菜单小图标 data-target='#..' 需要加# -->
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#fruitmenu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- navbar-brand 针对logo等固定内容的样式 -->
+            <a href="#" class="navbar-brand"><img src="../../material/images/logo.png" alt="天天生鲜logo"></a>
+
+        </div>
+        <!--  配合上面 可伸缩菜单小图标 -->
+        <div class="collapse navbar-collapse" id="fruitmenu">
+            <!-- bootstrap选项卡 1、nav  2、nav-tabs  3、nav-pills  4、tab-content-->
+            <!-- nav navbar-nav 定义导航条中的菜单 -->
+            <ul class="nav navbar-nav">
+                <li><a href="">首页</a></li>
+                <li><a href="">手机生鲜</a></li>
+                <li><a href="">推荐商品</a></li>
+                <li><a href="">抽奖</a></li>
+            </ul>
+            <!-- navbar-form 定义导航条中的表单 -->
+            <!-- navbar-right 菜单靠右 -->
+            <form class="navbar-form navbar-right">
+                <!-- form-group 表单组、包括表单文字和表单控件 -->
+                <div class="form-group">
+                    <!-- input-group 表单控件组 -->
+                    <div class="input-group">
+                        <!-- form-control 文本输入框、下拉列表控件样式 -->
+                        <input type="text" class="form-control">
+                        <!-- input-group-btn 表单控件组物件为按钮的样式 -->
+                        <span class="input-group-btn">
+                        <!-- bootcss.com 组件中放大镜的图标样式（glyphicon glyphicon-search） -->
+                        <button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!-- www.bootcss.com 组件-巨幕 框架-->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+        <!-- 列偏移 col-* 共分12份-->
+        <!-- col-lg-5 第一部分占5份 col-lg-offset-1 偏移一份-->
+        <div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offser-1">
+            <div class="banner_title"><img src="../../material/images/banner_title.png" alt=""></div>
+            <h3 class="active_title">水果节介绍</h3>
+            <p class="active_detail">程度安徽反而uihf韩国去vhfqferifjv你符合iqhefqhf厚度全额无法和去部分厚度而不放弃金额报复方便
+                父亲部分而且人发布全额无法报复额我其防护去我而去就的反而我ijvrejgrojgthutgafvniuaepqfnal
+                dfncuerfhiFN N JFIWEJRFOQEHFQHG副二日回复去ihg的愤怒iqefnigbyr；女擦率你</p>
+        </div>
+        <!--hidden-xs 当窗口宽度小于xs对应的宽度（768）时，隐藏-->
+        <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 hidden-xs">
+            <!-- img-responsive 声明响应式图片 随着宽度的变化图片适当的改变宽度-->
+            <img src="../../material/images/fruit.png" class="img-responsive">
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <h3 class="text-center active_pic_title">活动图片</h3>
+    <!--www.bootcss.com css样式-排版 对齐  text-center(居中对齐) -->
+    <p class="text-center active_pic_detail">程度安徽反而uihf韩国去vhfqferifjv你符合iqhefqhf厚度全额无法和去部分厚度而不放弃金额报复方便
+        父亲部分而且人发布全额无法报复额我其防护去我而去就的反而我ijvrejgrojgthutgafvniuaepqfnal
+        dfncuerfhiFN N JFIWEJRFOQEHFQHG副二日回</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6">
+            <!-- 结构与bootcss类似，仿照结构 thumbnail自动添加边框样式 -->
+            <div class="thumbnail">
+                <img src="../../material/images/active01.jpg" class="img-responsive">
+                <h4 class="text-center">现场采摘活动</h4>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <img src="../../material/images/active02.jpg" class="img-responsive">
+                <h4 class="text-center">现场采摘活动</h4>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <img src="../../material/images/active03.jpg" class="img-responsive">
+                <h4 class="text-center">现场采摘活动</h4>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <img src="../../material/images/active04.jpg" class="img-responsive">
+                <h4 class="text-center">现场采摘活动</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="common_title">
+        <!-- pull-left 靠左 -->
+        <h3 class="pull-left">推荐商品</h3>
+        <!-- pull-right 靠右 -->
+        <a href="#" class="pull-right">更多 &gt;</a>
+    </div>
+</div>
+<div class="container">
+    <div class="row goods_list">
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6" ><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+        <div class="col-lg-2  goods_list_show col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="../../material/images/good_pic.jpg" alt=""
+                                                                class="img-responsive"></a><h4 class="goods_name">
+            进口草莓</h4>
+            <p>￥<em>25.00</em><em>/500g</em></p></div>
+    </div>
+</div>
+</body>
+</html>

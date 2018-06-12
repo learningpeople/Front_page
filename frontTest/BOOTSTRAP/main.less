@@ -1,0 +1,23 @@
+//2、变量
+@w:200px;
+//.box{
+//  width: 200px;
+//  height: 200px;
+//  background-color: gold;
+//}
+.box{
+  width: @w;
+  height: @w;
+  background-color: gold;
+}
+//混合
+//定义box1的函数
+.box1(@w:100px,@h:100px,@bw:1px){
+  width: @w;
+  height: @h;
+  border: @bw solid gold;
+}
+.box01{
+  .box1(200px,300px,1px);
+  color: red;
+}

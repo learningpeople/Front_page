@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/mian.css">
+</head>
+<body>
+<!-- .header_con +tab键 及产生（<div class="header_con"></div>） -->
+<div class="header_con">
+    <div class="header">
+        <div class="welcome fl">欢迎来到天天生鲜</div>
+        <div class="user_info fr">
+            <div class="user_login_link fl">
+                <!-- a +tab键 及产成 （<a href=""></a>） -->
+                <a href="#">登录</a>
+                <span>|</span>
+                <a href="#">注册</a>
+            </div>
+            <div class="user_welcom fl">
+                欢迎您：<em>张山</em>
+            </div>
+            <div class="user_shopping fl">
+                <span>|</span>
+                <a href="#">我的购物车</a>
+                <span>|</span>
+                <a href="#">我的订单</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="logo_bar">
+    <!--没有发生marin-top的塌陷， 因为有浮动的设置-->
+    <div class="logo fl">
+        <a href="#"><img src="images/logo.png"></a>
+    </div>
+    <div class="search fl">
+        <!-- 如果涉及到form 提交 将input放在form中，form提交是有刷新的提交，会在提交事整个刷新页面加载数据，否则一般用submit -->
+        <!--<form action="">-->
+        <!--<input type="text" name="">-->
+        <!--</form>-->
+        <input type="text" name="" placeholder="搜索" class="input_text fl">
+        <input type="button" name="" value="搜索" class="input_btn fr">
+    </div>
+    <div class="chart fr">
+        <a href="#" class="fl">我的购物车</a>
+        <span class="fr">0</span>
+    </div>
+</div>
+<!--  发生的问题 .sub_menu_con的div跑到了body上方，原因是在.logo_bar的div中误加了浮动属性-->
+<div class="sub_menu_con">
+    <div class="sub_menu">
+        <h1 class="fl">全部商品分类</h1>
+        <ul class="fl">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">手机生鲜</a></li>
+            <li><a href="#">抽奖</a></li>
+        </ul>
+    </div>
+</div>
+<div class="center_con">
+    <ul class="main_menu fl">
+        <li><a href="" class="fruit">新鲜水果</a></li>
+        <li><a href="" class="seafood">海鲜水产</a></li>
+        <li><a href="" class="meat">猪牛羊肉</a></li>
+        <li><a href="" class="egg">禽类蛋品</a></li>
+        <li><a href="" class="vegetable">新鲜蔬菜</a></li>
+        <li><a href="" class="ice">速冻食品</a></li>
+    </ul>
+    <!--  当所有块元素向同一方向浮动时 就会产生块元素依次横向排列的效果-->
+    <div class="slide_con fl">
+        <ul class="slide">
+            <li><a href=""><img src="images/slide.jpg" alt="幻灯片"></a></li>
+        </ul>
+        <div class="prev"></div>
+        <div class="next"></div>
+        <ul class="points">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+    <div class="adv fl">
+        <!-- img和 虽然归类于内联元素，但特性与行内块元素类似-->
+        <a href=""><img src="images/adv01.jpg" alt="广告"></a>
+        <a href=""><img src="images/adv02.jpg" alt="广告"></a>
+    </div>
+</div>
+<div class="common_model">
+    <div class="common_title">
+        <h3 class="fl">新鲜水果</h3>
+        <ul class="fl">
+            <li><span>|</span></li>
+            <li><a href="">鲜芒</a></li>
+            <li><a href="">加州提子</a></li>
+            <li><a href="">亚马逊牛油果</a></li>
+        </ul>
+        <a href="#" class="more fr">查看更多 &gt;</a>
+    </div>
+    <div class="common_goods_list">
+        <div class="goods_banner fl"><img src="images/banner01.jpg"></div>
+        <ul class="goods_list fl">
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            </li>
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            </li>
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div class="common_model">
+    <div class="common_title">
+        <h3 class="fl">新鲜水果</h3>
+        <ul class="fl">
+            <li><span>|</span></li>
+            <li><a href="">鲜芒</a></li>
+            <li><a href="">加州提子</a></li>
+            <li><a href="">亚马逊牛油果</a></li>
+        </ul>
+        <a href="#" class="more fr">查看更多 &gt;</a>
+    </div>
+    <div class="common_goods_list">
+        <div class="goods_banner fl"><img src="images/banner01.jpg"></div>
+        <ul class="goods_list fl">
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            </li>
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            </li>
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div class="common_model">
+    <div class="common_title">
+        <h3 class="fl">新鲜水果</h3>
+        <ul class="fl">
+            <li><span>|</span></li>
+            <li><a href="">鲜芒</a></li>
+            <li><a href="">加州提子</a></li>
+            <li><a href="">亚马逊牛油果</a></li>
+        </ul>
+        <a href="#" class="more fr">查看更多 &gt;</a>
+    </div>
+    <div class="common_goods_list">
+        <div class="goods_banner fl"><img src="images/banner01.jpg"></div>
+        <ul class="goods_list fl">
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            </li>
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            </li>
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            <li>
+                <h4>草莓</h4>
+                <a href="#"><img src="images/goods_pic.jpg" alt="商品图片"></a>
+                <p>￥38.00</p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div class="footer">
+    <div class="link">
+        <a href="">关于我们</a>
+        <span>|</span>
+        <a href="">联系我们</a>
+        <span>|</span>
+        <a href="">招聘人才</a>
+        <span>|</span>
+        <a href="">友情链接</a>
+    </div>
+    <p>aaaaaaaaaa bbbbbbbbbb cccccccccc  dddddddddd<br/>
+    eeeeeeeeee </p>
+</div>
+
+</body>
+</html>

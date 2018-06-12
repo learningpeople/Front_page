@@ -1,0 +1,47 @@
+/*取消标签自带的 外边距 和内边距 样式*/
+body,ul,h1,h2,h3,h4,h5,h6,dl,dd,span,input,select,form{
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6{
+    /*让h标签继承body内设置的字体大小*/
+    font-size:100%;
+}
+
+ul{
+    /*取消ul自带 点符号 的样式,*/
+    list-style: none;
+}
+em{
+    /*取消em 自带  字体倾斜  的样式*/
+    font-style: normal;
+}
+a{
+    /*取消a标签 下划线  的样式*/
+    text-decoration: none;
+}
+img{
+    /*a标签 中的img 属性 在IE浏览器中会自带边框， 需要将其取消*/
+    border:none;
+}
+
+/*清除浮动  清除margin-top 塌陷*/
+.clearfix:before,.clearfix:after{
+    content: "";
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+.clearfix{
+    /*仅针对IE缩放网页 清除浮动*/
+    zoom:1;
+}
+
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}

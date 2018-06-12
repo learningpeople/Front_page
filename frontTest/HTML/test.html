@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的第一个网页</title>
+
+</head>
+<body>
+欢迎访问我的网页
+<h1></h1>
+<h2></h2>
+<h3></h3>
+...
+<h6></h6>
+<div> 没有语义</div>
+<p>段落<br />换行 &nbsp;(空格)  &lt;(大于号) &gt;(小于号)</p>
+<div>块 没有语义 <span>行内元素 行中内容  没有语义 配合样式应用</span></div>
+em标签 文字倾斜  语气强调
+i 文字倾斜   专业词汇
+b 文字加粗   关键字产品名
+strong 文字加粗 重要内容
+<ul><li>表示列表</li></ul>
+<a>表示链接</a>
+<dl><dt><dd>表示定义列表</dd></dt></dl>
+
+
+
+
+<img src="相对路径/绝对路径" alt="定义图片加载失败时显示的文字，以及搜索引擎和盲人读屏软件的支持"/>
+<a href="#"></a>  <!-- # 没有链接内容，仅只是显示为链接样式 -->
+<a href="http://..." title="当鼠标放在链接上时显示的提示" target="_self/_blank/"></a>
+<!-- _self 默认自己替换掉自己网页; _blank 新开一个页面，不覆盖原有网页 -->
+<a href="... .html"></a>
+
+<a href="#maodian">要跳转的链接</a>
+... <!--本页面跳转 -->
+<h3 id="maodian"> 跳转到的标题</h3>
+
+
+<!--dl>(dt+dd)*3  +tab建 -->
+<dl>
+    <dt></dt>
+    <dd></dd>
+    <dt></dt>
+    <dd></dd>
+    <dt></dt>
+    <dd></dd>
+</dl>
+
+
+
+
+<h3>有序列表：</h3>
+<!-- ol>li*3  +tab建 -->
+<ol>
+    <li>自动添加编号</li>
+    <li></li>
+    <li></li>
+</ol>
+
+<h3>无序列表：</h3>
+<ul>
+    <li><a href="#">前自动加项目符号（小园点）</a></li>
+    <li></li>
+    <li></li>
+</ul>
+
+
+<!--ul>(li>a)*5-->
+<ul>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+</ul>
+
+<h3>定义列表：</h3>
+<dl>
+    <dt>定义术语题目（默认顶头）</dt>
+    <dd>定义术语的解释 默认缩进）</dd>
+</dl>
+<!--dl>(dt+dd)*3  +tab建-->
+<dl>
+    <dt>html</dt>
+    <dd>负责页面的结构（</dd>
+    <dt>css</dt>
+    <dd>负责页面的表现</dd>
+    <dt>javascript</dt>
+    <dd>负责页面的行为</dd>
+</dl>
+
+
+
+
+
+<h3>表格：</h3>
+<table border="1" width="300" height="400">
+    <tr>
+        <th valign="top">定义表头，一列的名称，默认居中对齐，加粗</th>
+    </tr>
+    <tr><!--<tr> 一行 -->
+        <td align="center">表示一格，默认左对齐</td>
+    </tr>
+    <tr><!--<tr> 一行 -->
+        <td>表示一格</td>
+    </tr>
+</table>
+<!--border 定义边框-->
+<!--cellpadding 定义单元格内内容与边框的距离-->
+<!--cellspacing 定义单元格与单元格之间的距离-->
+<!--align 设置单元格中内容的水平对齐方式，设置值有：left|center|right-->
+<!--valign 设置单元格中内容的垂直对齐方式，设置值有：top|middle|bottom-->
+<!--colspan 设置单元格水平合并-->
+<!--rowspan 设置单元格垂直合并-->
+<h3>个人简历</h3>
+<!--table>(tr>td*5)*6  +tab建-->
+<table>
+    <tr>
+        <td ></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<h3>表单：</h3>
+<form action="http://...定义表单数据提交的位置">
+    <div>
+        <label  for="username">用户名：</label>
+        <input type="text" name=""  id="username">
+        <!--for 属性，点击文字进入input框-->
+    </div>
+    <br>
+    <div>
+        <label for="pass">密码：</label>
+        <input type="password" name="" id="pass">
+    </div>
+    <br>
+    <div>
+        <label>性别</label>
+        <input type="radio" name="radiobutton" id="male"><label for="male">男</label>
+        <input type]="radio" name="radiobutton" id="female"><label for="female">女</label>
+        <!--<input type="radio" name="radiobutton" id="male"><label for="male">男男</label>-->
+        <!--<input type="radio" name="radiobutton" id="female"><label for="female">女女</label>-->
+        <!--name相同时，即为互斥单选-->
+    </div>
+    <br>
+    <div>
+       <label>爱好：</label>
+        <input type="checkbox" name="like" value="1">游戏
+        <input type="checkbox" name="like" value="2"> 逛街
+    </div>
+    <br>
+    <div>
+        <label>照片:</label>
+        <input type="file" name="">
+        <!--定义上传文件-->
+    </div>
+    <div>
+        <label>个人描述:</label>
+        <textarea></textarea>
+    </div>
+    <div>
+        <label>籍贯：</label>
+        <select>
+            <option>广州</option>
+            <option>上海</option>
+            <option>北京</option>
+        </select>
+    </div>
+    <input type="submit" name="" value="提交" method="post">
+    <input type="reset" name="" value="重置">
+    <input type="button" name="" value="按钮">
+    <input type="hide" name="" value="存储值">
+
+</form>
+
+
+
+
+
+
+<a href="http://www.baidu.com" target="myframe">百度网</a>
+<a href="http://www.qq.com" target="myframe">腾讯网</a>
+<!--将链接在iframe 中打开-->
+<iframe name="myframe" src="http://www.baidu.com" frameborder="0" scrolling="no">
+    <!--src 将内容嵌入到框内    将百度嵌入到iframe里面
+        frameborder  iframe边框
+        scrolling    iframe滚动条
+        -->
+
+</iframe>
+
+
+
+</body>
+</html>
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->

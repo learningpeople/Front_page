@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--meta:vp +tab键   移动端需设置-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+</head>
+<style>
+    /*div{*/
+        /*color: red !important;*/
+    /*}*/
+    #box{
+        color:blue;
+    }
+    .boxx{
+        color:yellow;
+    }
+
+    .new_selecter li{
+        background-color: yellow;
+        margin-bottom: 10px;
+
+    }
+    /*针对子元素个数*/
+    /*.new_selecter li:nth-child(1){*/
+        /*background-color: green;*/
+    /*}*/
+    /*.new_selecter li:nth-child(3){*/
+        /*background-color: green;*/
+    /*}*/
+    /*.new_selecter li:nth-child(2n){*/
+        /*background-color: green;*/
+    /*}*/
+    /*.new_selecter li:nth-child(2n+1){*/
+        /*background-color: green;*/
+    /*}*/
+
+    /*针对子元素类型*/
+    /*正数第一个元素*/
+    .new_selecter li:nth-of-type(1){
+        background-color: green;
+    }
+    .new_selecter li:nth-of-type(3){
+        background-color: green;
+    }
+    /*偶数行*/
+    .new_selecter li:nth-of-type(2n){
+        background-color: green;
+    }
+    /*基数行*/
+    .new_selecter li:nth-of-type(2n+1){
+        background-color: green;
+    }
+    /*倒数第一个元素*/
+    .new_selecter li:nth-last-child(1){
+        background-color: peachpuff;
+    }
+    /*倒数第三个元素*/
+    .new_selecter li:nth-last-child(3){
+        background-color: peachpuff;
+    }
+    .new_selecter li:empty{
+        width: 300px;
+        height: 10px;
+        background-color: #00ACEC;
+    }
+    .new_selecter ul input:disabled{
+        background-color: #4b4b4b;
+    }
+    .new_selecter ul input:enabled{
+        background-color: peru;
+
+    }
+    .new_selecter ul input:checked + label{
+        color: red;
+    }
+    .new_selecter .input_check{
+        width: 100px;
+        height: 100px;
+        background-color: gold;
+        display: none;
+       }
+    .new_selecter ul input:checked + div{
+         display: block;
+     }
+    .radio_div{
+        width:200px;
+        height: 200px;
+        border: 2px solid #0c0c0c;
+        background-color: gold;
+        margin: 50px auto 0;
+        /*border-top-left-radius: 100px 50px;*/
+        /*border-top-left-radius: 100px;*/
+        /*border-top-right-radius: 100px;*/
+        /*从左上方顺时针依次设置四个脚的弯曲半径*/
+        border-radius:10px 30px 50px 100px;
+        /*border-radius: 40px;*/
+        /*border-radius:50%;*/
+    }
+    /*css3阴影*/
+    .shadow_div{
+        /*分别设置阴影的 水平偏移  垂直偏移  羽化大小  扩展阴影大小 颜色  是否内阴影  */
+        box-shadow: 10px 10px 10px 0px pink;
+    }
+    .shadow_inset_div{
+         box-shadow: 10px 10px 10px 0px pink inset;
+    }
+    /*透明度*/
+    .opacity_div{
+        background: url("../material/images/location_bg.jpg");
+        opacity:0.5; /*不兼容ie*/
+        filter:alpha(opacity=50); /*兼容ie 50即为50%*/
+        text-align: center;
+    }
+    .rgba_div{
+        /*rgba最后一个选项表示透明度*/
+        border: 2px solid rgba(0,0,0,0.3);
+        background-color: rgba(255,215,0,0.3);
+    }
+    .transition_div{
+        width:300px;
+        height: 300px;
+        /*transition:border-radius 300ms ease,width 300ms ease ,height 300ms ease,background-color 300ms ease 1s,border-radius 300ms ease 1s;*/
+        transition: all 500ms ease;
+    }
+    .transition_div:hover{
+        width:800px;
+        height: 500px;
+        background-color: pink;
+        border-radius: 50%;
+    }
+    .transition_test{
+        background: url('../material/images/location_bg.jpg');
+        position:relative;
+        overflow: hidden;
+        /*transition: top 1s ease;*/
+            }
+    .transition_test:hover .message{
+        top: 50px;
+    }
+    .transition_test .message{
+        width: 200px;
+        height:50px;
+        background-color: #0c0c0c;
+        color: #fff;
+        position:absolute;
+        left: 0;
+        top: 200px;
+        opacity: 0.3;
+        filter:alpha(opacity=30);
+        transition: all 1s cubic-bezier(0.750,-0.425,0.055,1.480);
+        text-align: center;
+
+    }
+    .transform_div{
+        width: 200px;
+        height: 200px;
+        background: url('../material/images/location_bg.jpg');
+        /*background-color: pink;*/
+        margin: 50px 20px 0;
+        transition: all 500ms ease;
+        display: inline-block;
+        /*float:left;*/
+    }
+    .transform_translate:hover{
+        /*translate内的值表示  从当前位置移动的距离同position 但性能不position好，
+        浏览器自动产生一个层完成动作且不会影响文档流*/
+        transform:translate(100px,100px)
+    }
+    .transform_scale:hover{
+        /*scale内的值表示缩放的倍数*/
+        transform:scale(0.5,0.5)
+    }
+    .transform_rotate:hover{
+        /*x轴向右  y轴向下  z轴垂直于平面向上  焦点是图形的中心点*/
+
+        /*以x轴顺时针旋转*/
+        /*transform:rotateX(45deg);*/
+        /*以y轴顺时针旋转*/
+        /*transform:rotateY(45deg);*/
+        /*以z轴顺时针旋转*/
+        transform:rotate(45deg);
+
+    }
+    .transform_skew:hover{
+        transform:skew(10deg,30deg)
+    }
+    .transform_perspective{
+        /*bug:perspective 和Y轴或x轴配合使用时有时会出现大面积晕染 需要设置初始值加以防止*/
+        transform:perspective(200px) rotateY(0);
+    }
+
+    .transform_perspective:hover{
+        transform:perspective(200px) rotateY(60deg);
+    }
+    .transform-style{
+        transform-style: preserve-3d;
+        /*transform-style: flat;*/
+    }
+    .transform-style:hover{
+        transform:perspective(200px) rotateY(60deg);
+    }
+    .transform-origin:hover{
+        transform-origin:30px 30px;
+        transform:rotate(-45deg);
+    }
+    .back_box{
+        width: 250px;
+        height:250px;
+        background-color: blue;
+    }
+
+    .back_box:hover .backface-visibility{
+        backface-visibility:hidden;
+        transform:perspective(200px) rotateY(180deg);
+    }
+    .con{
+        width: 300px;
+        height: 272px;
+        margin: 0 auto 0;
+        /*background: url('../material/images/location_bg.jpg');*/
+        position: relative;
+
+        /*单Y轴或X轴转换时不宜看到效果，需要设置3d和透视*/
+        /*transform-style: preserve-3d;*/
+        /*transform: perspective(800px) rotateY(45deg);*/
+
+        transform-style: preserve-3d;
+        transform: perspective(800px) rotateY(0deg);
+    }
+    .pic,.info{
+        width: 300px;
+        height: 272px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        backface-visibility: hidden;
+        transform: perspective(800px) rotateY(0deg);
+        transition: all 500ms ease;
+    }
+    .info{
+        background-color: gold;
+        text-align: center;
+        line-height: 272px;
+        transform: translateZ(2px) rotateY(180deg);
+    }
+    .con:hover .pic{
+        transform: perspective(800px) rotateY(180deg)
+    }
+    .con:hover .info{
+        transform: translateZ(2px) rotateY(0deg);
+    }
+
+    .animation_div{
+        width: 100px;
+        height: 100px;
+        background-color: gold;
+        /*animation-name 动画名称  animation-duration 动画时间  animation-timing-function  动画曲线（（linear 匀速| ease 开始和结束慢速| ease-in 开始时慢速| ease-out 结束时慢速| ease-in-out 开始和结束时慢速| steps 动画步数）
+         animation-delay 动画延迟  animation-iteration-count 动画播放的次数（n|infinite 无限次） animation-direction（normal 默认动画结束不返回| alternate 动画结束后返回） animation-play-state 动画状态（paused 停止| running 运动）
+         animation-fill-mode 动画前后的状态（none 不改变默认行为| forwards 当动画完成后，保持的最后一个属性值（在最后一个关键帧中定义<@keyframes>）|backwards 在@keyframes-delay所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）
+         |both 向前向后填充模式都被应用）
+         */
+        /*animation:动画名称 动画时间 动画曲线 动画延迟 动画播放的次数 动画是否结束 动画起始和结束的状态 */
+        animation: moving 1s ease 1s 5 alternate both;
+    }
+    .animation_div:hover{
+        animation-play-state:paused;
+    }
+    /*@keyframes 定义关键针动画 */
+    @keyframes moving{
+        from{
+            width:200px;
+        }
+        to{
+            width: 1000px;
+        }
+    }
+    .animation_walk{
+        width: 120px;
+        height: 182px;
+        border: 1px solid #000;
+        margin: 50px auto 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .animation_walk img{
+        position: absolute;
+        left: 0;
+        top:0;
+        animation: walking 1s steps(8) infinite;
+    }
+    @keyframes walking {
+        from{
+            left: 0px;
+        }
+        to{
+            left: -960px;
+        }
+
+    }
+    .animation_mult{
+        width: 100px;
+        height: 100px;
+        background-color: gold;
+        margin: 0px auto;
+        animation: translateY_a 6s ease both;
+    }
+    @keyframes translateY_a {
+        0%{
+           transform: translateY(0px);
+
+       }
+        20%{
+            transform:translateY(300px) ;
+            background-color: #00ACEC;
+        }
+        30%{
+            transform:translateY(0px) ;
+        }
+        80%{
+            transform:translateY(0px) ;
+            background-color: #00ACEC;
+        }
+        100%{
+            transform:translateY(0px) ;
+            border-radius: 50%;
+            background-color: red;
+        }
+    }
+    .loding_animation{
+        width: 300px;
+        height: 120px;
+        border: 1px solid #000;
+        margin: 0 auto;
+    }
+    .loding_animation div{
+        width: 30px;
+        height: 70px;
+        float: left;
+        background-color: gold;
+        margin: 15px;
+        border-radius: 30px;
+    }
+    .loding_animation p{
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        float: left;
+
+    }
+    .loding_animation div:nth-child(1){
+        background-color: green;
+        animation: loading 1s ease 0s infinite alternate ;
+    }
+    .loding_animation div:nth-child(2){
+        background-color: red;
+        animation: loading 1s ease 100ms infinite alternate ;
+    }
+    .loding_animation div:nth-child(3){
+        background-color: pink;
+        animation: loading 1s ease 200ms infinite alternate ;
+    }
+    .loding_animation div:nth-child(4){
+        background-color: greenyellow;
+        animation: loading 1s ease 300ms infinite alternate ;
+    }
+    .loding_animation div:nth-child(5){
+        background-color: cyan;
+        animation: loading 1s ease 400ms infinite alternate ;
+    }
+    @keyframes loading{
+        from{
+            transform: scaleY(1);
+            /*autoprofix */
+            -webkit-transform: scaleY(1);
+            -moz-transform: scaleY(1);
+            -ms-transform: scaleY(1);
+            -o-transform: scaleY(1);
+
+        }
+        to{
+            transform: scaleY(0.5);
+        }
+    }
+
+
+
+
+</style>
+<body>
+<!--<div id="box" style="color:pink" class="boxx">-->
+<div id="box" class="boxx">
+    权重等级<br/>
+    1.！important ，加在样式属性值后，权重值为10000<br/>
+    2.内联样式，如：style=""，权重值为1000<br/>
+    3.ID选择器，如：#content，权重值为100<br/>
+    4.类、伪类和属性选择器，如：.content  ：hover权重值为10 <br/>
+    5标签选择器和伪元素选择器，如：div   p  ：before权重值为1<br/>
+    6.通用选择器（*），子选择器（>），相邻选择器（+），同胞选择器（~） 权重为0
+    注意：<br/>
+    权重值相等时  后面的样式会覆盖前面的样式
+    权重值比较，是权重累加值的比较 eg：body .boxx{}(比重是11) > .boxx{}(权重是10)
+</div>
+
+<div class="new_selecter">
+    css3新增选择器
+    <ul>
+        <li>1.li:nth-child(3) 匹配父元素的第三个子元素，是li则运行样式，否则不运行</li>
+        <li>2. li:nth-of-type(3) 匹配父元素中第三个li子元素，并执行样式</li>
+        <div>3. li:nth-last-child(3)  匹配父元素的倒数第三个子元素，是li则运行样式，否则不运行</div>
+        <li>4. li:nth-last-of-type(2) 匹配父元素中倒数第二li子元素，并执行样式</li>
+        <li>5. li:first-child 匹配父元素的正数第一个子元素，是li则运行样式，否则不运行</li>
+        <li>6. li:last-child 匹配父元素的最后一个子元素，是li则运行样式，否则不运行</li>
+        <li>7. li:first-of-type 匹配父元素中第一个li子元素，并执行样式</li>
+        <li>8. li:last-of-type 匹配父元素中最后一个li元素，并执行样式</li>
+        <li>9. li:only-child 匹配元素为li且为唯一的子元素</li>
+        <li>10. li:only-of-type 匹配子元素唯一的li子元素</li>
+        <li></li>
+        <li>12. li:empty{} 空的li元素</li>
+        <input type="text" value="13.E:disable  失效的表单控件" disabled>
+        <input type="text" value="14.E:enable  可用的表单控件">
+        <input type="checkbox" value="15"> <label>15.E：checkbox 选中的checkbox</label>
+        <input type="checkbox" value="16"> <div class="input_check">16.E：not(s) 不包含某个元素</div>
+        <li>17.  E>F   E元素下面的第一层子集</li>
+        <li>18.  E~F   E元素后面的兄弟元素</li>
+        <li>19.  E+F   紧挨着的兄弟元素</li>
+    </ul>
+</div>
+<div class="radio_div shadow_div"></div>
+<div class="radio_div shadow_inset_div"></div>
+<div class="radio_div opacity_div">窗前名月光</div>
+<div class="radio_div rgba_div"></div>
+<div class="radio_div transition_div">
+    1.transition-property 设置过度的属性  比如：width heght background-color
+    2.transition-duration  设置过度的时间 比如：1s 500s
+    3.transition-timing-function  设置过度的运动方式
+    （linear 匀速| ease 开始和结束慢速| ease-in 开始时慢速| ease-out 结束时慢速| ease-in-out 开始和结束时慢速
+    | cubic-bezier(0.845,-0.375,0.215,1335) 立方体-贝塞尔曲线设置 <a href="https:matthewlein.com/ceaser/">曲线设置网站</a>）
+    | transition-delay 设置动画延迟 | transition：porperty duration timing-function delay 同时设置四个属性
+</div>
+<div class="radio_div transition_test">
+    <div class="message"><p>综合练习</p></div>
+</div>
+<div class="transform_div">css3 transform变换</div>
+<div class="transform_div transform_translate">transform:translate(x,y) 设置盒子位移,还包含&lt;translateX,translateY,translateZ分别设置&gt;</div>
+<div class="transform_div transform_scale">transform：scale(x,y)设置盒子缩放  倍数 ,还包含&lt;scaleX,scaleY,scaleZ 分别设置&gt;</div>
+<div class="transform_div transform_rotate">transform:rotate(def) 设置盒子旋转  角度 ,还包含&lt;rotateX,rotateY,rotateZ 分别设置&gt;</div>
+<div class="transform_div transform_skew">transform:skew(x-angle,y-angle) 设置盒子斜切  角度（def）</div>
+<div class="transform_div transform_perspective">transform:perspective(200px) rotateX(60deg); 设置透视距离(一般与rotateX，totateY配合使用)</div>
+<div class="transform_div transform-style">transform-style:flat|preserve-3d  设置盒子是否按3d空间显示 与透视perspective配合使用</div>
+<div class="transform_div transform-origin">transform-origin 设置变形的中心点</div>
+<div class="back_box">
+    <div class="transform_div backface-visibility">backface-visibility:hidden; 设置盒子背面是否可见</div>
+</div>
+<div class="con">
+    <div class="pic"><img src="../material/images/location_bg.jpg" alt=""></div>
+    <div class="info">图片文件说明，背面旋转</div>
+</div>
+<div class="animation_div">
+</div>
+<div class="animation_walk">
+    <img src="../material/images/walking.png" alt="">
+</div>
+<div class="animation_mult">
+
+</div>
+
+<div class="loding_animation">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p>loading...</p>
+</div>
+<!--html5新增有语义的标签，不常用，很多浏览器不支持，兼容性差-->
+<div class="header"></div>
+<!--表示页面头部、页眉-->
+<header></header>
+
+<div class="nav"></div>
+<!--表示页面导航-->
+<nav></nav>
+
+<!--表示一篇文章-->
+<article>
+    <!--表示文章中的章节-->
+    <section></section>
+    <section></section>
+</article>
+<!--表示侧导航栏-->
+<aside></aside>
+<!--表示页面底部、页脚-->
+<footer></footer>
+
+<!--新增的表单控件，不常用-->
+<label>网址</label><input type="url"><br><br>
+<label>邮箱</label><input type="email"><br><br>
+<label >日期</label><input type="date"><br><br>
+<label >时间</label><input type="time"><br><br>
+<label >星期</label><input type="week"><br><br>
+<label>数量</label><input type="number"><br><br>
+<label >范围</label><input type="range"><br><br>
+<label >电话</label><input type="tel"><br><br>
+<label >颜色</label><input type="color"><br><br>
+<label >搜索</label><input type="search"><br><br>
+
+<!--新增常用表单空间属性，常用-->
+<!--placeholder input框输入前的默认值-->
+<!--autofocus   自动获取input框焦点-->
+<!--autocomplete   设置input框联想下拉框的功能，常用于autocomplete="off" 关闭联想功能，-->
+<div>
+    <input type="text" placeholder="input框输入前的默认值" autofocus autocomplete="off">
+</div>
+<div>
+    <!--controls 显示播放器-->
+    <!--autoplay  自动播放-->
+    <!--loop 循环播放-->
+    <!--preload 预加载-->
+    <!--muted 静音-->
+    <!--auto 支持格式ogg、wav、mp3-->
+    <audio src="../material/source/audio.mp3" controls autoplay loop preload muted>
+
+    </audio>
+    <audio controls autoplay loop preload muted>
+        <source src="../material/source/audio.mp3">
+        <source src="../material/source/audio02.wav">
+    </audio>
+    video 支持的格式ogg、mp4、webM
+    <video controls autoplay loop preload muted width="400" height="300">
+        <source src="../material/source/mov.mp4">
+    </video>
+</div>
+<!--第三方播放器-->
+<!--cyberplayer-->
+<!--tencentPlayer-->
+<!--youkuplayer-->
+
+
+</body>
+</html>

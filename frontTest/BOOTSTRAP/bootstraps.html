@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--meta:vp +tab键   兼容手机-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <script type="text/javascript" src="../material/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="../material/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../material/js/jquery.cookie.js"></script>
+    <link rel="stylesheet" type="text/css" href="../material/css/bootstrap.min.css">
+    <style type="text/css">
+       /*
+       属性选择器
+       <div data-attr = 'ok'></div>...
+
+       E[data-attr] 含有data-attr属性的元素
+       E[data-attr='ok'] 含有data-attr属性的元素且它的值为’ok‘
+       E[data-attr^='ok'] 含有data-attr属性的元素且它的值的开头含有'ok'
+       E[data-attr$='ok'] 含有data-attr属性的元素且它的值的结尾含有'ok'
+       E[data-attr*='ok'] 含有data-attr属性的元素且它的值中含有'ok'
+
+       */
+        div[class*='col-']{
+            /*height: 50px;*/
+            /*max-width: 300px;*/
+            border: 1px solid #000;
+            background-color: #00ACEC;
+        }
+        .row .pic{
+            height: 200px;
+            background-color: gold;
+            border: 1px solid #000;
+            margin: 15px;
+        }
+        .glyphicon-music{
+            color: yellow;
+            font-size: 20px;
+        }
+        .edit{
+            color: blue;
+            font-size: 30px;
+        }
+    </style>
+    <script type="text/javascript">
+//         cookie 的读写需要在服务器环境下
+        $.cookie('mycookie','123',{expires:7,path:'/'});
+        var val=$.cookie('mycookie');
+        if (val==undefined){
+            $('.pop_con').show();
+            $('.pop').animate({marginTop:-50,opacity:-1});
+        }
+        $('.hasknow').click(function () {
+            $.cookie('hesread','ok',{expires:7,path:'/'});
+            $('.pop_con').hide()
+        });
+//        不需要服务器环境可以直接存
+        localStorage.setItem('dat','456');
+//        仅在同源的当前窗口关闭前有效。
+        sessionStorage.setItem('sessionS','ok!')
+
+        $(function(){
+            $('#btn01').click(function () {
+                $('#modal01').modal('show')
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="container-fluid" style="background-color: gold">
+    流体容器，宽度始终100%， 默认左右有15px的padding
+</div>
+<br>
+<div class="container" style="background-color: greenyellow">
+    <!--响应式的固定宽度的容器 随着浏览器宽度的u缩小（大于1200,大于992,大于768），容器宽度分别为1170,970,750,100%， 默认左右有15px的padding-->
+    <!--响应式查询区间 大于1200,大于992,大于768-->
+    <!-- 向下依次 随着屏幕宽度的缩小，会被合并为一列， col-xs-3，则一直为一行-->
+
+    bootstrap 栅格系统，bootstrap将页面横向分为12等分，按照12等分定义了适应不同宽度等分的样式类，这些样式类组成了一套响应式、移动设备优先的流式栅格系统
+    1.col-lg-  大尺寸|  2.col-md-  中尺寸|  3.col-sm-  小尺寸|  4.col-xs-  最小尺寸 | 5.col-lg-offset-  列偏移| 默认左右有15px的padding
+     container默认左右有15px的padding,但row左右添加了-15px的margin，使栅格顶格排列，栅格内容可以和container的内容对其
+    <div class="row">
+        <!--class="col-lg-3" 在bootstraps中只有宽度在大于1200时，才会排成一行-->
+        <!-- .col-lg-3{col-lg-3}*4  +tab键 -->
+        <div class="col-lg-3">col-lg-3</div>
+        <div class="col-lg-3">col-lg-3</div>
+        <div class="col-lg-3">col-lg-3</div>
+        <div class="col-lg-3">col-lg-3</div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <!--class="col-lg-3" 在bootstraps中只有宽度在大于1200时，才会排成一行-->
+        <!-- .col-md-3{col-md-3}*4  +tab键 -->
+        <div class="col-md-4">col-md-4</div>
+        <div class="col-md-4">col-md-4</div>
+        <div class="col-md-4">col-md-4</div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <!--class="col-lg-3" 在bootstraps中只有宽度在大于1200时，才会排成一行-->
+        <!-- .col-lg-3{col-lg-3}*4  +tab键 -->
+        <div class="col-sm-3">col-sm-3</div>
+        <div class="col-sm-6">col-sm-6</div>
+        <div class="col-sm-3">col-sm-3</div>
+
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-xs-2">col-xs-2</div>
+        <div class="col-xs-7">col-xs-7</div>
+        <div class="col-xs-3">col-xs-3</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 ">col-lg-2</div>
+        <div class="col-lg-2 col-lg-offset-2">col-lg-2</div>
+        <div class="col-lg-2 col-lg-offset-2">col-lg-2</div>
+    </div>
+    <!--<div class="row">-->
+    <!--<div class="col-lg-3 col-md-4 col-sm-6">-->
+        <!--<div class="pic">本地存储分为cookie,以及新增的localStorage和sessionStorag</div>-->
+    <!--</div>-->
+    <!--<div class="col-lg-3 col-md-4 col-sm-6">-->
+        <!--<div class="pic">1.cookie,最大容量为4k，在同源的http请求时携带传递，损耗带宽，可设置访问路径，只有此路径及次路径的子路径才能访问此cookie，在设置的过期时间之前有效-->
+            <!--jquery 设置cookie &#45;&#45; $.cookie('mycookie','123',{expires:7,path:'/'})-->
+            <!--意思是cookie的key值为'mycookie',其对应的值为'123';过期时间为7天，存在的路径为/（根目录）-->
+            <!--jquery 获取cookie &#45;&#45; $.cookie('mycookie');-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-lg-3 col-md-4 col-sm-6">-->
+        <!--<div class="pic">2.localStorage，容量为5k或者更大，不会在请求时携带传递，在所有同源窗口中共享，数据一直有效，除非认为删除，可作为长期数据-->
+            <!--设置localStorage &#45;&#45; localStorage.setItem('dat','456'); 或者 localStorage.dat = '345';-->
+            <!--获取localStorage &#45;&#45; localStorage.getItem('dat') 或者 localStorage.dat-->
+            <!--删除localStorage &#45;&#45; localStorage.removeItem('dat')-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-lg-3 col-md-4 col-sm-6">-->
+        <!--<div class="pic">3.sessionStorage，容量为5或者更大，不会在请求时携带传递，在同源的当前窗口关闭前有效。-->
+            <!--设置、获取、删除 同localStorage-->
+            <!--localStorage和sessionStorage合称为web Storage，web Storage支持事件通知机制，可以将数据更新的通知监听者，web Storage的api接口使用更方便-->
+            <!--iPhone的无痕浏览不支持web Storage，只能用cookie。-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+</div>
+<br>
+<br>
+<div class="container" style="background-color:green">
+
+    <h1>按钮</h1>
+    <button class="btn btn-default btn-lg">button按钮</button>
+    <input type="button" class="btn btn-primary btn-sm" value="input按钮">
+    <a href="#" class="btn btn-success btn-xs">a标签按钮</a>
+    <a href="#" class="btn btn-info">a标签按钮</a>
+    <a href="#" class="btn btn-warning">a标签按钮</a>
+    <a href="#" class="btn btn-danger">a标签按钮</a>
+
+    <div class="btn-group">
+        <a href="#" class="btn btn-info">按钮info</a>
+        <a href="#" class="btn btn-warning">按钮warning</a>
+        <a href="#" class="btn btn-danger">按钮danger</a>
+    </div>
+    <div class="btn-group btn-group-justified">
+        <a href="#" class="btn btn-primary">按钮info</a>
+        <a href="#" class="btn btn-default">按钮warning</a>
+        <a href="#" class="btn btn-default">按钮danger</a>
+    </div>
+    <!-- 通栏的按钮组如果用input，需要在用btn-group的容器包起来 -->
+    <div class="btn-group btn-group-justified">
+        <div class="btn-group">
+            <input type="button" class="btn btn-primary " value="input按钮">
+        </div>
+        <div class="btn-group">
+            <input type="button" class="btn btn-primary " value="input按钮">
+        </div>
+        <div class="btn-group">
+            <input type="button" class="btn btn-primary " value="input按钮">
+        </div>
+    </div>
+
+</div>
+<br>
+<br>
+<div class="container" style="background-color:peachpuff">
+    <h1>表单</h1>
+    <div class="form">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Check me out
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+    <br>
+    <br>
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Check me out
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+    <br>
+    <br>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="col-sm-2">Email address</label>
+            <div class="col-sm-10">
+                <input type="email" class=" form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="col-sm-2">Password</label>
+            <div class="col-sm-10">
+            <input type="password" class="col-sm-2 form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Check me out
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+    <h1>表单控件组</h1>
+
+
+    <div class="input-group">
+        <input type="text" class="form-control">
+        <span class="input-group-addon">@</span>
+    </div>
+    <br>
+    <div class="input-group">
+        <input type="text" class="form-control">
+        <span class="input-group-btn">
+            <button class="btn btn-primary">go</button>
+        </span>
+    </div>
+    <br>
+    <div class="input-group">
+        <input type="text" class="form-control">
+        <span class="input-group-btn">
+            <!-- 在组件中查找需要的字体图标-->
+            <button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+    </div>
+
+
+</div>
+
+<div class="container">
+    <h1>字体图标</h1>
+    <button class="btn btn-primary"><span class="glyphicon glyphicon-music"></span> 音乐</button>
+    <button class="btn btn-primary"><span class="glyphicon glyphicon-exclamation-sign"></span> 警告</button>
+    <p><span class="glyphicon glyphicon-pencil edit"></span>编辑</p>
+    <h1>图片</h1>
+    <div class="row">
+        <!-- img-responsive 图片的相应： 如果容器的宽度比图片大，则图片就等于自己的宽度
+                                       如果容器的宽度比图片小，则图片的宽度就等于容器的宽度减去左右的padding值-->
+        <div class="col-md-3"><img src="../material/images/location_bg.jpg" alt="" class="img-responsive"></div>
+        <div class="col-md-3"><img src="../material/images/location_bg.jpg" alt="" class="img-rounded"></div>
+        <div class="col-md-3"><img src="../material/images/location_bg.jpg" alt="" class="img-circle"></div>
+        <div class="col-md-3"><img src="../material/images/location_bg.jpg" alt="" class="img-thumbnail"></div>
+    </div>
+</div>
+<h1>导航条（导航条包含容器）</h1>
+<div class="navbar navbar-default">
+    <div class="container">
+        <!--固定格式：字体要用a标签包裹-->
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">LOGO</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">公司新闻</a></li>
+            <li><a href="#">行业动态</a></li>
+            <li><a href="#">找才纳贤</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+
+    </div>
+</div>
+<br>
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <!--固定格式：字体要用a标签包裹-->
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#togglemenu">
+                <!--go-->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a href="#" class="navbar-brand">LOGO</a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="togglemenu">
+            <ul class="nav navbar-nav">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">公司新闻</a></li>
+                <li><a href="#">行业动态</a></li>
+                <li><a href="#">找才纳贤</a></li>
+                <li><a href="#">关于我们</a></li>
+            </ul>
+            <!--<button class="btn btn-default navbar-btn">按钮</button>-->
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default"><span class=" glyphicon glyphicon-search"></span></button>
+                    </span>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+<h1>路径导航</h1>
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="">Libary</a></li>
+    <li class="active">Data</li>
+</ol>
+<h1>巨幕（banner）</h1>
+<div class="jumbotron">
+    <div class="container">
+        <h2>欢迎访问</h2>
+        <p>巨幕包含容器，动态改变字体的大小</p>
+
+    </div>
+</div>
+<h1>模态框(默认是不显示的，只有点击的时候才会显示)</h1>
+<div class="container">
+    <!-- data-* 默认含有js效果-->
+    <button class="btn btn-success" id="btn01"> JS控制弹出</button>
+
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modal01">弹出大模态框(.modal-lg)</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modal02">弹出一般模态框</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modal03">弹出小模态框(.modal-sm)</button>
+</div>
+<!-- .fade 渐隐效果弹出弹窗-->
+<div class="modal fade" id="modal01">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--&times;关闭的图标 <span class="sr-only">Close</span> 用于读屏 -->
+                <button type="button" class="closs" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                弹框标题
+            </div>
+            <div class="modal-body">
+                弹框主题
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">弹框底部</button>
+                <!-- data-dismiss="modal" 取消弹窗-->
+                <button class="btn btn-warning" data-dismiss="modal">取消弹框</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal02">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                弹框标题
+            </div>
+            <div class="modal-body">
+                弹框主题
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">弹框底部</button>
+                <!-- data-dismiss="modal" 取消弹窗-->
+                <button class="btn btn-warning" data-dismiss="modal">取消弹框</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal03">
+    <div class="modal-dialog">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                弹框标题
+            </div>
+            <div class="modal-body">
+                弹框主题
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">弹框底部</button>
+                <!-- data-dismiss="modal" 取消弹窗-->
+                <button class="btn btn-warning" data-dismiss="modal">取消弹框</button>
+            </div>
+        </div>
+    </div>
+</div>
+<h1>下拉菜单</h1>
+<div class="container">
+    <div class="dropdown">
+        <!-- .dropdown-toggle 也可不要 -->
+        <div class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            下拉菜单
+            <!-- 显示小三角-->
+            <span class="caret"></span>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="#">菜单一</a></li>
+            <li><a href="#">菜单二</a></li>
+            <li><a href="#">菜单三</a></li>
+
+        </ul>
+    </div>
+</div>
+<h1>隐藏类</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 hidden-xs">col-lg-3 hidden-xs</div>
+        <div class="col-lg-3 hidden-sm">col-lg-3 hidden-sm</div>
+        <div class="col-lg-3 hidden-md">col-lg-3 hidden-md</div>
+        <div class="col-lg-3 hidden-lg">col-lg-3 hidden-lg</div>
+    </div>
+</div>
+<!-- 注：有时服务器会自动屏蔽掉以 .eot 结尾的fonts字体格式，导致某些图标不能生效，解除屏蔽即可-->
+前端性能优化分为如下几个方面：
+<h1>一、代码部署：</h1>
+1.代码压缩和合并
+2.图片、js、css等静态资源使用和主站不同域名地址存储，从而使得在传输资源时不会带上不必要的cookie信息。
+3、使用内容分发网络CDN（及分布式服务器，由cdn服务商维护）
+4、为文件设置Last-Modified、Expires和Etag   (即做文件的本地缓存，Last-Modified 上次修改的时间|Expires 材料过期时间|Etag 标记，由于判断是否更新 )
+5、使用GZIP压缩传送 （一般能节约40%的流量）
+6、权衡DNS查找次数(使用不同域名会增加DNS查找)  （针对第二点减少静态资源的域名存储）
+7、避免不必要的重定向(加"/")   （即在域名后加反斜杠（‘/’）避免重定向）
+<h1>二、编码</h1>
+<h2>html：</h2>
+1、使用结构清晰，简单，语义化标签
+2、避免空的src和href
+3、不要在HTML中缩放图片 (浏览器对图片的渲染较为薄弱)
+<h2>css：</h2>
+1、精简css选择器
+2、把CSS放到顶部  (在渲染页面，需要先读取样式)
+3、避免@import方式引入样式 (eg:@import '1.css'  已不用，在最后导入样式)
+4、css中使用base64图片数据取代图片文件，减少请求数，<a href="http://tool.css-js.com/base64.html">在线转base64网站：http://tool.css-js.com/base64.html</a>
+5、使用css动画来取代javascript动画
+6、使用字体图标,图标库网站：http://fontawesome.io/icons/，在线制作网站：www.iconfont.cn
+
+
+</body>
+</html>
